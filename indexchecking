@@ -1,0 +1,12 @@
+To generate a small workload of 500 documents. 
+for (let i = 0; i < 500; i++) {
+    db.numbers.insert({a:i+1, b:i+2,c:i+3,d:i+4})
+}
+
+Step 2 is to create the index 
+db.numbers.createIndex({a:1,b:1,c:1})
+
+case 1
+db.numbers.find({a:1},{a:1,b:1,c:1,d:1})
+
+The above query is a index scan. 
